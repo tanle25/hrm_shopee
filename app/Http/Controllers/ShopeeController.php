@@ -157,14 +157,15 @@ class ShopeeController extends Controller
         $products = Session::get('products');
         try {
             //code...
-            Excel::store(new ProductExport($products),'products.xlsx');
+            // Excel::store(new ProductExport($products),'products.xlsx');
             Session::forget('products');
-            return response()->download(storage_path('app/products.xlsx'))->deleteFileAfterSend(true);
+            // return response()->download(storage_path('app/products.xlsx'))->deleteFileAfterSend(true);
+            return Excel::download(new ProductExport($products));
 
         } catch (\Throwable $th) {
             //throw $th;
             dd($th);
-            return back()->withErrors('err','Lỗi');
+            return back()->withErrors(['err'=>'Lỗi']);
         }
 
 
