@@ -160,7 +160,7 @@ class ShopeeController extends Controller
             // Excel::store(new ProductExport($products),'products.xlsx');
             Session::forget('products');
             // return response()->download(storage_path('app/products.xlsx'))->deleteFileAfterSend(true);
-            return Excel::download(new ProductExport($products));
+            return Excel::download(new ProductExport($products),'products.xlsx');
 
         } catch (\Throwable $th) {
             //throw $th;
