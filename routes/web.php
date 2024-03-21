@@ -49,3 +49,9 @@ Route::post('get-product-shopee',[ShopeeController::class,'getByURL']);
 
 
 Route::get('xoa-san-pham/{id}',[ShopeeController::class,'deleteProduct']);
+
+
+
+
+Route::get('test',[HomeController::class,'test']);
+

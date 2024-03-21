@@ -81,7 +81,7 @@ class ProductExport implements FromArray, WithHeadings, WithMapping
             $product->price_max_bf = $product->price_max_bf,
             $product->lazPrice,
             $product->tikiPrice,
-            $product->content == null ? html_entity_decode($product->description) : $this->makeContent($product->content),
+            $product->content = $product->description,
             isset($product->images[0]) ? "https://down-vn.img.susercontent.com/file/".$product->images[0]   : "",
             isset($product->images[1]) ? "https://down-vn.img.susercontent.com/file/".$product->images[1]   : "",
             isset($product->images[2]) ? "https://down-vn.img.susercontent.com/file/".$product->images[2]   : "",
